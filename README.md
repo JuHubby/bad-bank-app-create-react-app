@@ -5,7 +5,8 @@
  This is a banking app without security measures. It's solely a project aimed at practicing my first Reacts app creations through the toolchain CREATE REACT APP. The app enables users to create an account with minimal requirements and perform basic transactions such as depositing to their balance and withdrawing. However, these transactions are not connected to any specific user, serving merely as an example. I intend to continue working on this project to improve it and move towards developing a more realistic and secure banking application.
 
 ## How to Run:
-This project was initiated using the Create React App tool, and connects with the browser as follows:
+This project was initiated using the Create React App tool, and connects with the browser as follows: **Note: this app alsso uses libraries such as bootstrap react, react-dom, formik. Make sure to run this instalation in your terminal, got to section extra installations**
+
 
 ### Getting Started with Create React App
 
@@ -77,6 +78,37 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ##### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+### Extra Installations
+#### react-dom
+This package serves as the entry point to the DOM and server renderers for React. It is intended to be paired with the generic React package, which is shipped as react to npm.
+
+##### Installation
+npm install react react-dom [More INFO](https://www.npmjs.com/package/react-dom)
+
+#### react-bootstrap
+##### Installation
+The best way to consume React-Bootstrap is via the npm package which you can install with npm (or yarn if you prefer).
+
+If you plan on customizing the Bootstrap Sass files, or don't want to use a CDN for the stylesheet, it may be helpful to install vanilla Bootstrap as well.
+
+npm install react-bootstrap bootstrap [More INFO](https://react-bootstrap.github.io/docs/getting-started/introduction)
+
+#### formik
+##### Installation
+You can install Formik with NPM, Yarn, or a good ol' <script> via unpkg.com.
+
+NPM
+Copy
+ npm install formik --save
+or
+
+Copy
+ yarn add formik 
+ 
+ [More INFO](https://formik.org/docs/overview#installation)
+
 
 
 ## Roadmap of future improvements:
