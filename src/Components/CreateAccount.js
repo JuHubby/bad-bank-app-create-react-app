@@ -26,42 +26,51 @@ function CreateAccount() {
             password: "",
         },
         onSubmit: (values) => {
-        //   alert("Account creation successful");
-          //I want to put ID in each array inside users to identifye with key and then to be able to create map fuction to find if the user exist or no, i may need to turn the id in string to aviod changes//
-     
-        for(let i=1; i < ctx.users.length; i++ ) {
-            const keyValue = i;
-            // ctx.users[i].push({...ctx.users, keyValue});
-            setIdElement(keyValue);
-        }
-        ctx.users.push({idElement,name,email,lastName,password});
-        console.log({idElement,name,email,lastName,password});
-        console.log(values);
-        setShow(false);
+            alert("Account creation successful"); console.log(values);            
+            setShow(false);
         },
 
         validate: (values) => {
           let errors = {};
-          if (!values.email) errors.email = <span className="alert alert-danger d-flex align-items-center" > <strong> Field required</strong></span> ;
-          if (!values.password) errors.password = <span className="alert alert-danger d-flex align-items-center" > <strong> Field required</strong></span> ;
-          if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email))
-            errors.email = 
-            <span className="alert alert-danger d-flex align-items-center" > <strong> Username should be an email</strong></span> ;
-          return errors;
+          if (!values.name) errors.name = <span className="alert alert-danger d-flex align-items-center" > <strong> Field required</strong></span> ;
+          
+          
+          if (!values.password) {
+            errors.password = <span className="alert alert-danger d-flex align-items-center" > <strong> Field required</strong></span> ;} 
+            // else if(!/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/.test(values.password))
+            // errors.password = 
+            // <span className="alert alert-danger d-flex align-items-center" > <strong> The password must contain minimum 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character</strong></span> ;
+          if (!values.email) {
+            errors.email = <span className="alert alert-danger d-flex align-items-center" > <strong> Field required</strong></span>; 
+        } else if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+            errors.email = <span className="alert alert-danger d-flex align-items-center" > <strong> This field should include a valid email address</strong></span> ;
+        } 
+        return errors;
         },
       });
+
 
       console.log("formik const:", formik.values);
       const formikConst = formik.values;
       const formikCopy = formikConst;
       console.log("formik copy:", formikCopy);
+      //I want to put ID in each array inside users to identifye with key and then to be able to create map fuction to find if the user exist or no, i may need to turn the id in string to aviod changes//
+      const updatingData = (e) => {
+        ctx.users.push(formikCopy);
+      };
+      
 
     function clearForm() {
         formik.resetForm();
+        updatingData();
         setShow(true);
     };
 
     return (
+        <div >
+        
+            <h6>{JSON.stringify(ctx)}</h6>
+        
         <CardPersonalized
             width="50"
             header="Create your Account"
@@ -163,6 +172,7 @@ function CreateAccount() {
                 </>
             )}
         />
+        </div>
     )
 }
 

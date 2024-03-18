@@ -47,7 +47,7 @@ function AllData() {
             <ButtonPersonalized
         titleButton="Retrieve data"
         handleOnclick={handleLoad}/>
-        <div class="container">
+        <div className="container">
         {loaded && ctx.users.map((user,i) =>
         
             <user-row key={i}

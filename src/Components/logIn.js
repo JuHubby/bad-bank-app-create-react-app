@@ -47,7 +47,7 @@ function Login() {
     const ctx = useContext(UserContext);
     return (
         <>
-        <h1>login {JSON.stringify(ctx)}</h1>   
+        <h6>login {JSON.stringify(ctx)}</h6>   
         <CardPersonalized
             
             header="Log into your Account"

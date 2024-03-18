@@ -23,7 +23,7 @@ function App () {
         <div >
         <NavBar />
         <div className='body' >
-          <UserContext.Provider value={{users: [{idElement:'1', name:'abel', lastName:'Becerra', email:'abel@mit.edu', password:'secret', balance:100}]}}>
+          <UserContext.Provider value={{users: [{id:0, name:'abel', lastName:'Becerra', email:'abel@mit.edu', password:'secret', balance:100}]}}>
           <Routes>
             <Route path="/" element={ <Home /> }/>
             <Route path="/CreateAccount/" element={ <CreateAccount /> }/>
