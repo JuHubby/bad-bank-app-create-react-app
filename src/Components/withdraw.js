@@ -13,6 +13,11 @@ function Withdraw() {
     const [show, setShow] = useState(true);
     const ctx = useContext(UserContext);
 
+    console.log(`balance should be 300 ${balance}`)
+    const negated = -balance;
+    console.log(`balance should be -300 ${negated}`)
+
+
     function validate(field, label) {
         if(!field){
             setStatus(<span className="alert alert-danger d-flex align-items-center" > <strong> Holy guacamole! </strong>    
@@ -20,17 +25,25 @@ function Withdraw() {
             setTimeout(() => setStatus (''), 3000);
             return false;
         };
-        if(field >= 0 ) {
-            setStatus(<span className="alert alert-danger d-flex align-items-center" > Ups! 
-            You're not able to withdraw a positive amount. Please choose a negative number.</span>);
-            setTimeout(() => setStatus (''), 3000);
-            return false;
-        } else if(field > balance || balance == 0) {
+        if(balance <= 0)  {
             setStatus(<span className="alert alert-danger d-flex align-items-center" > Ups!
            You do not have enough funds for this withdrawal amount.</span>);
             setTimeout(() => setStatus (''), 3000);
             return false;
         };
+
+        if(field >= 0 ) {
+            setStatus(<span className="alert alert-danger d-flex align-items-center" > Ups! 
+            You're not able to withdraw a positive amount. Please choose a negative number.</span>);
+            setTimeout(() => setStatus (''), 3000);
+            return false;
+        } else if(field < (-balance)) {
+            setStatus(<span className="alert alert-danger d-flex align-items-center" > Ups!
+           You do not have enough funds for this withdrawal amount.</span>);
+            setTimeout(() => setStatus (''), 3000);
+            return false;
+        };
+
         
         return true
     
@@ -65,6 +78,10 @@ function Withdraw() {
              status={status}
              body= {show ? (
                 <>
+                <div className="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                Please select an amount without decimals.
+                </div>
+                <br/>
                 <div className="container text-center">
                     <div className="row">
                         <div className="col">

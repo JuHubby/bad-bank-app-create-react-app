@@ -12,7 +12,7 @@ function Login() {
     const ctx = useContext(UserContext);
     const { users: [ {balance}] } = ctx;
     console.log(`balance ${balance}`);
-// {users: [{id:0, name:'abel', lastName:'Becerra', email:'abel@mit.edu', password:'secret', balance:100}]}}>
+    // {users: [{id:0, name:'abel', lastName:'Becerra', email:'abel@mit.edu', password:'secret', balance:100}]}}>
 
 
    

@@ -27,6 +27,7 @@ function Home() {
                         <br/>
                         <LinkPersonalizado
                         titleButton="Get started >>"
+                        handleOnclick="#/CreateAccount/"
                         />
                     </div>
                 </div>

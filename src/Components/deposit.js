@@ -57,7 +57,7 @@ function Deposit() {
 
     return (
         <>
-            <h1>Deposit </h1>
+            <h1> </h1>
             <CardPersonalized
              wide="50"
              header="Deposit"
@@ -65,6 +65,10 @@ function Deposit() {
              status={status}
              body= {show ? (
                 <>
+                <div className="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                Please select an amount without decimals.
+                </div>
+                <br/>
                 <div className="container text-center">
                     <div className="row">
                         <div className="col">

@@ -49,7 +49,7 @@ function AllData() {
         handleOnclick={handleLoad}/>
         <div className="container">
         {loaded && ctx.users.map((user,i) =>
-        
+            <>
             <user-row key={i}
             name={user.name} 
             lastName={user.lastName}
@@ -57,8 +57,20 @@ function AllData() {
             password={user.password}
             balance={user.balance}
                 />
-                
-            )}
+
+            <br/>
+            <div className="container">
+                <div class="card">
+                    <div class="card-body">
+                    <span>Below is the data presented in JSON format:</span><br/>
+                    {JSON.stringify(ctx)}
+                    </div>
+                </div>
+            </div>
+            </>                
+            )
+        }
+        <br/>
         </div>
         </div> }
         />

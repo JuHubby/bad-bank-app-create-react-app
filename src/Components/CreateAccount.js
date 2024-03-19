@@ -74,7 +74,7 @@ function CreateAccount() {
     return (
         <div >
         
-            <h6>{JSON.stringify(ctx)}</h6>
+            {/* <h6>{JSON.stringify(ctx)}</h6> */}
         
         <CardPersonalized
             width="50"
