@@ -2,14 +2,18 @@ import { CardPersonalized, ButtonPersonalized } from "./context";
 import React from "react";
 import { useState, useContext } from "react";
 import { UserContext } from "../App";
+import { defaultBalance } from "./logIn";
 
 function Deposit() {
+    const ctx = useContext(UserContext);
+    // const { users: [ {balance : balanceAbel}] } = ctx;
     const [depositAmount, setDepositAmount] = useState("");
     const [status, setStatus]= useState("");
-    const [balance, setBalance] = useState(0);
+    const [balance, setBalance] = useState(300);
     const [show, setShow] = useState(true);
     const [idElement, setIdElement] = useState(0);
-    const ctx = useContext(UserContext);
+   
+   
 
     function validate(field, label) {
         if(!field){

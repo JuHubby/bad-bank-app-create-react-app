@@ -3,7 +3,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import { Link, HashRouter, Route, Routes } from "react-router-dom";
 import AllData from './Components/allData';
-import Balance from "./Components/balance";
 import CreateAccount from './Components/CreateAccount';
 import Deposit from './Components/deposit';
 import Home from './Components/home';
@@ -30,7 +29,6 @@ function App () {
             <Route path="/login/" element={ <Login /> }/>
             <Route path="/deposit/" element={ <Deposit /> }/>
             <Route path="/withdraw/" element={ <Withdraw /> }/>
-            <Route path="/balance/" element={ <Balance /> }/>
             <Route path="/alldata/" element={ <AllData /> }/>
           </Routes>
           </UserContext.Provider>

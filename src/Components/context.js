@@ -55,7 +55,7 @@ function ButtonPersonalized(props) {
         <div className="container text-center">
         <div className="row">
         <div className="col">
-            <button onClick={props.handleOnclick} className={`btn btn-${props.color ? props.color : defaultColor}`}>{props.titleButton}</button>
+            <button disabled={props.disabled} onClick={props.handleOnclick} className={`btn btn-${props.color ? props.color : defaultColor}`}>{props.titleButton}</button>
         </div>
         </div>
         </div>
@@ -67,10 +67,10 @@ function ButtonPersonalized(props) {
 function LinkPersonalizado(props) {
         return (
             <>
-            <div className="container text-center">
+            <div className="container">
             <div className="row">
             <div className="col">
-                <a href={props.handleOnclick} className={`btn btn-${props.color ? props.color : defaultColor}`}>{props.titleButton}</a>
+                <a type="button" className="btn btn-outline-dark" href={props.handleOnclick} >{props.titleButton}</a>
             </div>
             </div>
             </div>

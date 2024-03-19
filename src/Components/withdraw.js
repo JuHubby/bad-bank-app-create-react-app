@@ -2,12 +2,13 @@ import { CardPersonalized, ButtonPersonalized } from "./context";
 import React from "react";
 import { useState, useContext } from "react";
 import { UserContext } from "../App";
+import { defaultBalance } from "./logIn";
 
 
 function Withdraw() {
     const [withdrawAmount, setWithdrawAmount] = useState("");
     const [status, setStatus]= useState("");
-    const [balance, setBalance] = useState(0);
+    const [balance, setBalance] = useState(defaultBalance);
     const [newBalance, setNewBalance] = useState(0);
     const [show, setShow] = useState(true);
     const ctx = useContext(UserContext);
@@ -17,7 +18,6 @@ function Withdraw() {
             setStatus(<span className="alert alert-danger d-flex align-items-center" > <strong> Holy guacamole! </strong>    
             You should check in on the {label} field above.</span>);
             setTimeout(() => setStatus (''), 3000);
-            
             return false;
         };
         if(field >= 0 ) {
@@ -25,7 +25,7 @@ function Withdraw() {
             You're not able to withdraw a positive amount. Please choose a negative number.</span>);
             setTimeout(() => setStatus (''), 3000);
             return false;
-        } else if(field < balance) {
+        } else if(field > balance || balance == 0) {
             setStatus(<span className="alert alert-danger d-flex align-items-center" > Ups!
            You do not have enough funds for this withdrawal amount.</span>);
             setTimeout(() => setStatus (''), 3000);
@@ -56,7 +56,7 @@ function Withdraw() {
 
     return (
         <>
-            <h1>Withdraw </h1>
+            <h1></h1>
             <CardPersonalized
              wide="20"
              header="Withdraw"
@@ -86,7 +86,8 @@ function Withdraw() {
                         <div className="row">
                             <div className="col">
                                 <ButtonPersonalized
-                                titleButton="withdraw"
+                                disabled={!withdrawAmount}
+                                titleButton="Withdraw"
                                 handleOnclick={handleWithdraw}
                                 />
                             </div>

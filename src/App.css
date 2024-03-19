@@ -20,9 +20,9 @@
   height: auto;
 	--sz: 70px; /*** size ***/
 	--c0: #e5dfdd;
-	--c1: #ffc56f1b;
-  --c2: #c0b9ae70;
-  --c3: #c5975347;
+	--c1: #d9b47df5;
+  --c2: #edc27eb3;
+  --c3: #d0bc9def;
   --ts: 50%/ calc(var(--sz) * 12.8) calc(var(--sz) * 22);
   background:
 		/*bottom*/
@@ -54,7 +54,7 @@
   bottom: 0px;
   left: 0px;
   opacity: 0.6;
-  background-color: rgba(246, 241, 241, 0);
+  background-color: rgba(246, 241, 241, 0.023);
 }
 
 

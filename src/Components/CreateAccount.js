@@ -15,6 +15,7 @@ function CreateAccount() {
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
     const [show, setShow] = useState(true);
+    const [dissabledButton, setdissabledButton] = useState(true)
     const ctx = useContext(UserContext);
 
     
@@ -33,22 +34,25 @@ function CreateAccount() {
         validate: (values) => {
           let errors = {};
           if (!values.name) errors.name = <span className="alert alert-danger d-flex align-items-center" > <strong> Field required</strong></span> ;
-          
+
           
           if (!values.password) {
             errors.password = <span className="alert alert-danger d-flex align-items-center" > <strong> Field required</strong></span> ;} 
-            // else if(!/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/.test(values.password))
-            // errors.password = 
-            // <span className="alert alert-danger d-flex align-items-center" > <strong> The password must contain minimum 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character</strong></span> ;
+            else if(!/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/.test(values.password))
+            errors.password = 
+            <span className="alert alert-danger d-flex align-items-center" > <strong> The password must contain minimum 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character</strong></span> ;
           if (!values.email) {
             errors.email = <span className="alert alert-danger d-flex align-items-center" > <strong> Field required</strong></span>; 
         } else if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
             errors.email = <span className="alert alert-danger d-flex align-items-center" > <strong> This field should include a valid email address</strong></span> ;
         } 
+        setdissabledButton(false);
         return errors;
         },
       });
 
+     
+      
 
       console.log("formik const:", formik.values);
       const formikConst = formik.values;
@@ -63,6 +67,7 @@ function CreateAccount() {
     function clearForm() {
         formik.resetForm();
         updatingData();
+        setdissabledButton(true);
         setShow(true);
     };
 
@@ -87,9 +92,7 @@ function CreateAccount() {
                     type="text"
                     name="name"
                     placeholder="Enter name"  
-                    // onChange={e => setName(e.currentTarget.value)}
                     onChange={formik.handleChange}
-                    // onClick={e => setName(e.currentTarget.value)}
                     value={formik.values.name}
                 ></input>
                 {" "}
@@ -104,7 +107,6 @@ function CreateAccount() {
                     name="lastName"
                     id="name" 
                     placeholder="Enter lastname"  
-                    // onChange={e => setLastName(e.currentTarget.value)}
                     onChange={formik.handleChange}
                     value={formik.values.lastName}
                 ></input>
@@ -130,11 +132,9 @@ function CreateAccount() {
                 <br></br>
                 <div>Password:</div>
                 <input
-                    // type="password" 
                     className="form-control" 
                     id="password" 
                     placeholder="Enter password" 
-                    // onChange={e => setPassword(e.currentTarget.value)}
                     type="text"
                     name="password"
                     onChange={formik.handleChange}
@@ -153,6 +153,8 @@ function CreateAccount() {
                     type="submit"
                     name="submitBtn"
                     className="button"
+                    // disabled={dissabledButton ? 'disabled' : null}
+                    disabled={dissabledButton}
                 />
                 </div>
                 </div>
@@ -162,13 +164,13 @@ function CreateAccount() {
                 <>
                 <h5 className="alert alert-success">You have successfully created your account.</h5>
                 <div className="row">
-                        <div className="col">
-                            <ButtonPersonalized 
-                            titleButton="Create Another Account"
-                            handleOnclick={clearForm}
-                            />
-                        </div>
+                    <div className="col">
+                        <ButtonPersonalized 
+                        titleButton="Create Another Account"
+                        handleOnclick={clearForm}
+                        />
                     </div>
+                </div>
                 </>
             )}
         />
