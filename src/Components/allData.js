@@ -39,7 +39,7 @@ function AllData() {
         <CardPersonalized
         width="auto"
         header="Summary Accounts"
-        title="Welcome to your Bank"
+        title="Data Table"
         nameButton="Save"
         hdColor="dark"
         center="true"
@@ -57,16 +57,6 @@ function AllData() {
             password={user.password}
             balance={user.balance}
                 />
-
-            <br/>
-            <div className="container">
-                <div class="card">
-                    <div class="card-body">
-                    <span>Below is the data presented in JSON format:</span><br/>
-                    {JSON.stringify(ctx)}
-                    </div>
-                </div>
-            </div>
             </>                
             )
         }
