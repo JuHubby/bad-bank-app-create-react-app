@@ -17,7 +17,7 @@
   background-color: rgb(252, 246, 246);
   opacity: 1;
   position: relative;
-  height: auto;
+  height:100vh;
 	--sz: 70px; /*** size ***/
 	--c0: #e5dfdd;
 	--c1: #d9b47df5;

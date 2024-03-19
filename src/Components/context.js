@@ -1,3 +1,6 @@
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
+
 const defaultColor = "success";
 
 // with: 25,50,75 or 100 or auto. colors $colors: (
@@ -78,4 +81,18 @@ function LinkPersonalizado(props) {
         )
         }
 
-export {CardPersonalized, ButtonPersonalized, LinkPersonalizado};
+function NavLinkPers (props) {
+    return (
+        <OverlayTrigger
+        placement="bottom"
+        overlay={<Tooltip id="button-tooltip-2">{props.label}</Tooltip>}
+        >
+        {({ ref, ...triggerHandler }) => (
+            <a ref={ref} {...triggerHandler} className="nav-link link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover d-inline-flex align-items-center" aria-current="page" href={props.href}> <span className="ms-1">{props.name}</span></a>
+        )}
+        </OverlayTrigger>
+        
+    )
+}
+
+export {CardPersonalized, ButtonPersonalized, LinkPersonalizado, NavLinkPers};

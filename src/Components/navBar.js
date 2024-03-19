@@ -1,4 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { NavLinkPers } from './context';
+
 
 
 function NavBar () {
@@ -15,21 +17,41 @@ function NavBar () {
             <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse " id="navbarNav">
-            <ul className="navbar-nav nav-underline">
+            <ul className="navbar-nav nav-underline nav-fill">
                 <li className="nav-item">
-                <a className="nav-link link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" aria-current="page" href="#/CreateAccount/"> Create Account</a>
+                <NavLinkPers 
+                href="#/CreateAccount/"
+                name="Create Account"
+                label="Create New Account"
+                />
                 </li>
                 <li className="nav-item">
-                <a className="nav-link link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" aria-current="page" href="#/login/">Login</a>
+                <NavLinkPers 
+                href="#/login/"
+                name="Login"
+                label="Sing In"
+                />
                 </li>
                 <li className="nav-item">
-                <a className="nav-link link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" aria-current="page" href="#/deposit/">Deposit</a>
+                <NavLinkPers 
+                href="#/deposit/"
+                name="Deposit"
+                label="Deposit funds"
+                />
                 </li>
                 <li className="nav-item">
-                <a className="nav-link link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" aria-current="page" href="#/withdraw/">Withdraw</a>
+                <NavLinkPers 
+                href="#/withdraw/"
+                name="Withdraw"
+                label="Withdraw funds"
+                />
                 </li>
-                <li>
-                <a className="nav-link link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" aria-current="page" href="#/alldata/">AllData</a>
+                <li className="nav-item">
+                <NavLinkPers 
+                href="#/alldata/"
+                name="All Data"
+                label="Data Table"
+                />  
                 </li>
              
             </ul>
