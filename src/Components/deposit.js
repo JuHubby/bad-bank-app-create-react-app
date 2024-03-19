@@ -9,7 +9,7 @@ function Deposit() {
     // const { users: [ {balance : balanceAbel}] } = ctx;
     const [depositAmount, setDepositAmount] = useState("");
     const [status, setStatus]= useState("");
-    const [balance, setBalance] = useState(300);
+    const [balance, setBalance] = useState(defaultBalance);
     const [show, setShow] = useState(true);
     const [idElement, setIdElement] = useState(0);
    
@@ -86,6 +86,7 @@ function Deposit() {
                         <div className="row">
                             <div className="col">
                                 <ButtonPersonalized
+                                disabled={!depositAmount}
                                 titleButton="Deposit"
                                 handleOnclick={handleDeposit}
                                 />
